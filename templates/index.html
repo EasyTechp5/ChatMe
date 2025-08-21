@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EasyTech Chat</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">EasyTech Chat</div>
+
+    <div class="chat-body">
+      {% for sender, msg in chat_history %}
+        <div class="message {% if sender != 'You' %}bot{% else %}user{% endif %}">
+          {% if sender != 'You' %}
+            <!-- Bot avatar -->
+            <img src="{{ url_for('static', filename='bot_avatar.png') }}" alt="Bot Avatar">
+          {% endif %}
+          <div class="bubble">{{ msg }}</div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <form method="POST" class="chat-footer">
+      <input type="text" name="query" placeholder="Type your question..." required>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>

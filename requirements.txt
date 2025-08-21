@@ -1,0 +1,10 @@
+flask
+chromadb
+langchain
+PyPDF2
+sentence-transformers
+transformers
+torch
+python-dotenv
+langchain_google_genai
+langchain_community
